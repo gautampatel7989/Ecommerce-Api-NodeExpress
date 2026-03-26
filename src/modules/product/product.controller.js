@@ -16,6 +16,7 @@ export const getProductById = asyncHandler(async (req, res) => {
 
 // Create Product
 export const createProduct = asyncHandler(async (req, res) => {
+  console.log("req.user::", req.user);
   const product = await productService.createProduct(req.body, req.user.userId);
   return successResponse(
     res,

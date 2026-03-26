@@ -14,6 +14,8 @@ export const register = asyncHandler(async (req, res) => {
 
 export const login = asyncHandler(async (req, res) => {
   const { user, token } = await authService.loginUser(req.body);
+  req.user = user;
+  console.log("loggedInUser::", req.user);
   return successResponse(
     res,
     { user, token },

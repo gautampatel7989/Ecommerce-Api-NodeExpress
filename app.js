@@ -7,6 +7,7 @@ import userRoutes from "./src/modules/user/user.routes.js";
 import productRoutes from "./src/modules/product/product.routes.js";
 import cartRoutes from "./src/modules/carts/cart.routes.js";
 import orderRoutes from "./src/modules/order/order.routes.js";
+import paymentRoutes from "./src/modules/payments/payment.routes.js";
 import "./src/listeners/user.listner.js";
 import dotenv from "dotenv";
 dotenv.config();
@@ -22,6 +23,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/payments", paymentRoutes);
 
 app.get("/health", (req, res) => {
   req.log.info("Health check Api hit");
