@@ -7,6 +7,9 @@ import userRoutes from "./src/modules/user/user.routes.js";
 import productRoutes from "./src/modules/product/product.routes.js";
 import cartRoutes from "./src/modules/carts/cart.routes.js";
 import orderRoutes from "./src/modules/order/order.routes.js";
+import "./src/listeners/user.listner.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 const app = express();
 

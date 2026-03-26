@@ -3,6 +3,8 @@ import * as authRepo from "./ auth.repository.js";
 import { Role } from "../../models/role.model.js";
 import { ApiError } from "../../utils/appError.js";
 import { generateToken } from "../../utils/jwt.js";
+import { eventEmitter } from "../../utils/eventEmitter.js";
+import { EVENTS } from "../../constants/event.js";
 
 export const registerUser = async (data) => {
   const existingUser = await authRepo.findByEmail(data.email);
@@ -16,7 +18,6 @@ export const registerUser = async (data) => {
     password: hasPassword,
     role: userRole._id,
   });
-  return user;
 };
 
 export const loginUser = async ({ email, password }) => {
@@ -38,7 +39,7 @@ export const loginUser = async ({ email, password }) => {
     email: user.email,
     role: user.role,
   });
-
+  // eventEmitter.emit(EVENTS.USER_REGISTERED, user);
   return {
     user,
     token,

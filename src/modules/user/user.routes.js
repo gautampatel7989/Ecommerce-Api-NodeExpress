@@ -21,7 +21,7 @@ router.put(
 router.post(
   "/upload-profile",
   authenticate,
-  upload.single("image"),
+  upload.single("file"),
   uploadProfileImage,
 );
 
