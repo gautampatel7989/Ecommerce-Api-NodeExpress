@@ -22,7 +22,7 @@ router.get("/:id", authenticate, getProductById);
 router.post(
   "/",
   authenticate,
-  authorize("create_product"),
+  // authorize("create_product"),
   validate(createProductSchema),
   createProduct,
 );

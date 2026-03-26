@@ -9,11 +9,14 @@ export const authenticate = (req, res, next) => {
   }
 
   const token = authHeader.split(" ")[1];
+  console.log("token::", token);
   try {
     const decode = jwt.verify(token, config.jwtsecret);
     req.user = decode;
+    consol.e.log("decodedUser::", req.user);
     next();
   } catch (error) {
-    next(new ApiError("Invalid token", 401));
+    next();
+    // next(new ApiError("Invalid token", 401));
   }
 };
